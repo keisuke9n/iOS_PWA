@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Walk Athlete | Metamorph</title>
+
+    <!-- Core Styles (no external links) -->
+    <style>
+      /* ---------- Root Tokens ---------- */
+      :root {
+        --primary: #006aff; /* bright sapphire */
+        --secondary: #00e0ff; /* neon cyan */
+        --accent: #ff7a00; /* vivid orange */
+        --bg: #0f1016; /* near‑black */
+        --glass: rgba(255, 255, 255, 0.08);
+        --radius: 18px;
+        --blur: 18px;
+        --text: #f5f5f7;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      /* ---------- Reset ---------- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* ---------- Utilities ---------- */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .glass {
+        background: var(--glass);
+        backdrop-filter: blur(var(--blur));
+        -webkit-backdrop-filter: blur(var(--blur));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      /* ---------- Hero Section ---------- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -150% -150% 0 0;
+        background: radial-gradient(circle at 25% 25%, var(--primary), transparent 60%),
+          radial-gradient(circle at 75% 75%, var(--secondary), transparent 60%);
+        transform: rotate(25deg);
+        animation: swirl 18s infinite alternate;
+        z-index: -2;
+      }
+      @keyframes swirl {
+        0% {
+          transform: rotate(25deg) scale(1);
+        }
+        100% {
+          transform: rotate(385deg) scale(1.4);
+        }
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw + 1rem, 4.8rem);
+        letter-spacing: -1px;
+        line-height: 1.2;
+      }
+      .hero p {
+        margin-top: 18px;
+        font-size: 1.05rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+      }
+      .cta-button {
+        margin-top: 40px;
+        padding: 14px 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+      }
+
+      /* ---------- Features ---------- */
+      .features {
+        padding: 100px 0 120px;
+      }
+      .features-grid {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .feature-card {
+        padding: 32px 26px;
+        position: relative;
+      }
+      .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        color: var(--secondary);
+      }
+      .feature-card p {
+        font-size: 0.97rem;
+        opacity: 0.85;
+      }
+
+      /* Decorative floating icon */
+      .icon {
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+      }
+
+      /* ---------- Policy ---------- */
+      .policy {
+        padding: 80px 26px;
+        margin-bottom: 120px;
+      }
+      .policy h2 {
+        text-align: center;
+        margin-bottom: 28px;
+        color: var(--secondary);
+      }
+      .policy p {
+        max-width: 900px;
+        margin: 0 auto 14px;
+        font-size: 0.95rem;
+        opacity: 0.88;
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        text-align: center;
+        padding: 60px 20px 80px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* ---------- Scroll Animations ---------- */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ---------- Media ---------- */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.001s !important;
+          transition-duration: 0.001s !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container fade-up">
+        <h1>Prime Walk Athlete</h1>
+        <p>Level‑up every stride. Hit prime‑number milestones and transform training into a game of infinite possibilities.</p>
+        <button class="cta-button" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
+      </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features" class="features container">
+      <div class="features-grid">
+        <div class="feature-card glass fade-up">
+          <div class="icon">🏆</div>
+          <h3>Prime Motivation</h3>
+          <p>Micro‑goals appear at each prime. Momentum never stalls.</p>
+        </div>
+        <div class="feature-card glass fade-up">
+          <div class="icon">📈</div>
+          <h3>Athlete Analytics</h3>
+          <p>Distance, pace, cadence & prime milestones in perfect sync.</p>
+        </div>
+        <div class="feature-card glass fade-up">
+          <div class="icon">🔒</div>
+          <h3>Private by Design</h3>
+          <p>No accounts, no cloud. All processing happens on device.</p>
+        </div>
+        <div class="feature-card glass fade-up">
+          <div class="icon">🎖️</div>
+          <h3>Badge Collection</h3>
+          <p>High‑polish badges drop as you crush prime thresholds.</p>
+        </div>
+        <div class="feature-card glass fade-up">
+          <div class="icon">💓</div>
+          <h3>HealthKit Ready</h3>
+          <p>Reads your step data (with consent) for seamless accuracy.</p>
+        </div>
+        <div class="feature-card glass fade-up">
+          <div class="icon">💰</div>
+          <h3>Free‑with‑Ads</h3>
+          <p>AdMob banners keep the app free — never full‑screen pop‑ups.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Policy -->
+    <section class="policy glass fade-up container">
+      <h2>Privacy Policy</h2>
+      <p><strong>Data Collection:</strong> Prime Walk Athlete collects <em>zero</em> personally identifiable information. Step data obtained via Apple HealthKit stays strictly on your device.</p>
+      <p><strong>Health Data:</strong> We read step count solely to calculate stats and achievements. We never write data back to HealthKit.</p>
+      <p><strong>Advertising:</strong> Google AdMob banner ads fund development. AdMob may use device identifiers only as permitted by its own policies.</p>
+      <p><strong>Offline First:</strong> Prime calculations, badge generation, and history function without connectivity.</p>
+      <p><strong>Contact:</strong> Questions? Email <a href="mailto:keisuke9n@gmail.com" style="color: var(--accent); text-decoration: none;">keisuke9n@gmail.com</a>.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      &copy; <span id="year"></span> Metamorph. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Scroll fade‑up animation
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // animate once
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

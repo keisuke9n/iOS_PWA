@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Walk Athlete | Metamorph</title>
+    <style>
+      :root {
+        --primary: #0051ff;
+        --accent: #ff8800;
+        --bg: #f9f9fb;
+        --text: #333;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      header {
+        padding: 80px 20px 60px;
+        text-align: center;
+        background: linear-gradient(145deg, var(--primary), var(--accent));
+        color: white;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 2.4rem;
+        letter-spacing: -0.5px;
+      }
+      h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        font-weight: normal;
+        opacity: 0.9;
+      }
+      section {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .feature-list {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 20px;
+      }
+      .feature {
+        background: white;
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+      .feature h3 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+        color: var(--primary);
+      }
+      .feature p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+      .policy {
+        background: white;
+        border-radius: var(--radius);
+        padding: 30px 24px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+        font-size: 0.95rem;
+      }
+      .policy h3 {
+        margin-top: 0;
+        color: var(--primary);
+      }
+      footer {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #666;
+        padding: 40px 20px 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Prime Walk Athlete</h1>
+      <h2>Turn every step into a prime achievement.</h2>
+    </header>
+
+    <section>
+      <h2>Why Athletes Choose Prime Walk</h2>
+      <div class="feature-list">
+        <div class="feature">
+          <h3>Prime‑Powered Motivation</h3>
+          <p>Your step count instantly converts into prime‑number milestones, giving you fresh micro‑goals every time you move.</p>
+        </div>
+        <div class="feature">
+          <h3>Athlete‑Focused Analytics</h3>
+          <p>Track pace, distance, and cadence alongside prime milestones to push training efficiency to the next level.</p>
+        </div>
+        <div class="feature">
+          <h3>Lightweight & Private</h3>
+          <p>All calculations stay on your device. There is no account, no cloud, and no hidden tracking—just movement.</p>
+        </div>
+        <div class="feature">
+          <h3>Achievement Badges</h3>
+          <p>Unlock beautifully crafted badges as you pass significant prime numbers. Collect them, share them—own them.</p>
+        </div>
+        <div class="feature">
+          <h3>HealthKit Integration</h3>
+          <p>With your permission, Prime Walk Athlete reads step data from Apple Health to ensure your stats stay in sync.</p>
+        </div>
+        <div class="feature">
+          <h3>Ad‑Supported & Free</h3>
+          <p>The app is free to use. AdMob banners appear in non‑intrusive areas to support ongoing development.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="policy">
+        <h3>Privacy Policy</h3>
+        <p><strong>Data Collection</strong>: Prime Walk Athlete does <em>not</em> collect personally identifiable information. All step data accessed via Apple HealthKit remains on your device.</p>
+        <p><strong>Health Data</strong>: Step count information is read from HealthKit solely to calculate in‑app statistics and achievements. We never write data back to HealthKit.</p>
+        <p><strong>Advertising</strong>: The app displays Google AdMob banner ads. AdMob may use device identifiers (such as the advertising ID) to serve personalized ads in accordance with Google AdMob policies.</p>
+        <p><strong>Offline Operation</strong>: The core features—including step tracking, prime calculations, and badge generation—function without an internet connection.</p>
+        <p><strong>Contact</strong>: If you have any questions about this policy or your data, please reach out to us at keisuke9n@gmail.com.</p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Metamorph. All rights reserved.
+    </footer>
+
+    <script>
+      // Insert current year automatically
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
