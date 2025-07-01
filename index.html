@@ -1,279 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prime Walk Athlete | Metamorph</title>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>素数ウォーク | Metamorph</title>
+  <meta name="description" content="歩数を“素数”で楽しむ新感覚フィットネスアプリ『素数ウォーク』— ただ歩くだけで数学の冒険へ。">
+  <style>
+    :root {
+      --accent: #1e90ff;
+      --bg: #f7f7fb;
+      --txt: #222;
+      --sub: #555;
+      --radius: 14px;
+    }
+    body   { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Hiragino Sans, "Noto Sans JP", sans-serif; background: var(--bg); color: var(--txt); line-height: 1.6; }
+    main   { max-width: 840px; margin: 0 auto; padding: 48px 20px 72px; }
+    h1     { font-size: 2.4rem; margin-top: 0; }
+    h2     { font-size: 1.6rem; margin: 2.8rem 0 1rem; }
+    h3     { font-size: 1.2rem; margin: 1.8rem 0 .6rem; }
+    p.lead { font-size: 1.15rem; color: var(--sub); margin-top: 1rem; }
+    section.card {
+      background: #fff; border-radius: var(--radius); padding: 28px 24px; box-shadow: 0 4px 16px rgba(0,0,0,.05); margin-top: 32px;
+    }
+    ul.features { list-style: none; padding-left: 0; margin: 0; }
+    ul.features li { margin: .8rem 0; padding-left: 1.4rem; position: relative; }
+    ul.features li::before { content: "✔︎"; position: absolute; left: 0; color: var(--accent); }
+    footer { margin-top: 64px; text-align: center; font-size: .85rem; color: var(--sub); }
+    strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+<main>
 
-    <!-- Core Styles (no external links) -->
-    <style>
-      /* ---------- Root Tokens ---------- */
-      :root {
-        --primary: #006aff; /* bright sapphire */
-        --secondary: #00e0ff; /* neon cyan */
-        --accent: #ff7a00; /* vivid orange */
-        --bg: #0f1016; /* near‑black */
-        --glass: rgba(255, 255, 255, 0.08);
-        --radius: 18px;
-        --blur: 18px;
-        --text: #f5f5f7;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-      }
+  <!-- Hero -->
+  <header>
+    <h1>素数ウォーク</h1>
+    <p class="lead">1万歩で“今日の素数”を発見しよう。<br>
+      歩くたびに数学の世界が広がる、まったく新しいフィットネス体験。</p>
+  </header>
 
-      /* ---------- Reset ---------- */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        color: var(--text);
-        background: var(--bg);
-        line-height: 1.65;
-        overflow-x: hidden;
-      }
+  <!-- Features -->
+  <section class="card">
+    <h2>主な機能</h2>
+    <ul class="features">
+      <li>歩数 <strong>10,000 歩</strong> 達成で、その歩数未満の最大素数を自動表示</li>
+      <li>過去7日分を自動処理。平均歩数や抜け漏れもフォロー</li>
+      <li>集めた素数は<strong>Prime Panel</strong>でビジュアル化</li>
+      <li>実績解除でコレクター魂に火をつける<strong>バッジシステム</strong></li>
+      <li>目標歩数コース（30K / 40K / 50K）を自由に設定</li>
+      <li>広告表示の最小化：画面下部のバナーのみ</li>
+      <li>ヘルスケアから歩数を読み取り、デバイス内で完結</li>
+    </ul>
+  </section>
 
-      /* ---------- Utilities ---------- */
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+  <!-- How it Works -->
+  <section class="card">
+    <h2>使い方はかんたん</h2>
+    <h3>1. 歩くだけ</h3>
+    <p>アプリをインストールしたら、あとはいつも通り歩くだけ。<br>
+       今日の歩数が1万歩を超えると、<strong>今日の素数</strong>が予測されます。</p>
 
-      .glass {
-        background: var(--glass);
-        backdrop-filter: blur(var(--blur));
-        -webkit-backdrop-filter: blur(var(--blur));
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-      }
+    <h3>2. コレクションが育つ</h3>
+    <p>翌日にアプリを開くと、前日の素数が正式に記録されます。<br>
+       歩けば歩くほど Prime Panel がブルーで埋まり、コレクションが進行。</p>
 
-      /* ---------- Hero Section ---------- */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: -150% -150% 0 0;
-        background: radial-gradient(circle at 25% 25%, var(--primary), transparent 60%),
-          radial-gradient(circle at 75% 75%, var(--secondary), transparent 60%);
-        transform: rotate(25deg);
-        animation: swirl 18s infinite alternate;
-        z-index: -2;
-      }
-      @keyframes swirl {
-        0% {
-          transform: rotate(25deg) scale(1);
-        }
-        100% {
-          transform: rotate(385deg) scale(1.4);
-        }
-      }
-      .hero h1 {
-        font-size: clamp(2.5rem, 5vw + 1rem, 4.8rem);
-        letter-spacing: -1px;
-        line-height: 1.2;
-      }
-      .hero p {
-        margin-top: 18px;
-        font-size: 1.05rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        opacity: 0.9;
-      }
-      .cta-button {
-        margin-top: 40px;
-        padding: 14px 40px;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #fff;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
-        border: none;
-        border-radius: 999px;
-        cursor: pointer;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
-      }
+    <h3>3. バッジを集める</h3>
+    <p>合計獲得素数・連続達成日数・フィボナッチ素数など、<br>
+       多彩な実績解除でモチベーションを維持。</p>
+  </section>
 
-      /* ---------- Features ---------- */
-      .features {
-        padding: 100px 0 120px;
-      }
-      .features-grid {
-        display: grid;
-        gap: 40px;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      }
-      .feature-card {
-        padding: 32px 26px;
-        position: relative;
-      }
-      .feature-card h3 {
-        font-size: 1.25rem;
-        margin-bottom: 12px;
-        color: var(--secondary);
-      }
-      .feature-card p {
-        font-size: 0.97rem;
-        opacity: 0.85;
-      }
+  <!-- Privacy Policy -->
+  <section class="card">
+    <h2>プライバシーポリシー</h2>
 
-      /* Decorative floating icon */
-      .icon {
-        position: absolute;
-        top: -24px;
-        right: -24px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--primary));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-      }
+    <h3>1. 取得する情報</h3>
+    <p>本アプリは次の情報を取得します。</p>
+    <ul class="features">
+      <li><strong>歩数データ</strong>（Apple HealthKit）</li>
+      <li><strong>広告識別子（IDFA）</strong>：広告表示および効果測定のため</li>
+    </ul>
 
-      /* ---------- Policy ---------- */
-      .policy {
-        padding: 80px 26px;
-        margin-bottom: 120px;
-      }
-      .policy h2 {
-        text-align: center;
-        margin-bottom: 28px;
-        color: var(--secondary);
-      }
-      .policy p {
-        max-width: 900px;
-        margin: 0 auto 14px;
-        font-size: 0.95rem;
-        opacity: 0.88;
-      }
+    <h3>2. 利用目的</h3>
+    <p>取得した歩数データはアプリ内で素数計算・進捗表示にのみ使用し、外部サーバーへ送信しません。<br>
+       IDFA は Google AdMob バナー広告表示に使用されます。</p>
 
-      /* ---------- Footer ---------- */
-      footer {
-        text-align: center;
-        padding: 60px 20px 80px;
-        font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.65);
-      }
+    <h3>3. 第三者提供</h3>
+    <p>ユーザーの個人情報を第三者へ提供することはありません。ただし、広告配信のために Google AdMob へ匿名化された情報が送信される場合があります。</p>
 
-      /* ---------- Scroll Animations ---------- */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-      }
-      .fade-up.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    <h3>4. データの保持・管理</h3>
+    <p>歩数および素数記録は<strong>ユーザーのデバイス内</strong>（UserDefaults）に保存されます。アプリを削除すると同時にデータも消去されます。</p>
 
-      /* ---------- Media ---------- */
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          animation-duration: 0.001s !important;
-          transition-duration: 0.001s !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Hero -->
-    <header class="hero">
-      <div class="container fade-up">
-        <h1>Prime Walk Athlete</h1>
-        <p>Level‑up every stride. Hit prime‑number milestones and transform training into a game of infinite possibilities.</p>
-        <button class="cta-button" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
-      </div>
-    </header>
+    <h3>5. 未成年の利用</h3>
+    <p>13歳未満のお子様は、保護者の同意のもとでのみご利用ください。</p>
 
-    <!-- Features -->
-    <section id="features" class="features container">
-      <div class="features-grid">
-        <div class="feature-card glass fade-up">
-          <div class="icon">🏆</div>
-          <h3>Prime Motivation</h3>
-          <p>Micro‑goals appear at each prime. Momentum never stalls.</p>
-        </div>
-        <div class="feature-card glass fade-up">
-          <div class="icon">📈</div>
-          <h3>Athlete Analytics</h3>
-          <p>Distance, pace, cadence & prime milestones in perfect sync.</p>
-        </div>
-        <div class="feature-card glass fade-up">
-          <div class="icon">🔒</div>
-          <h3>Private by Design</h3>
-          <p>No accounts, no cloud. All processing happens on device.</p>
-        </div>
-        <div class="feature-card glass fade-up">
-          <div class="icon">🎖️</div>
-          <h3>Badge Collection</h3>
-          <p>High‑polish badges drop as you crush prime thresholds.</p>
-        </div>
-        <div class="feature-card glass fade-up">
-          <div class="icon">💓</div>
-          <h3>HealthKit Ready</h3>
-          <p>Reads your step data (with consent) for seamless accuracy.</p>
-        </div>
-        <div class="feature-card glass fade-up">
-          <div class="icon">💰</div>
-          <h3>Free‑with‑Ads</h3>
-          <p>AdMob banners keep the app free — never full‑screen pop‑ups.</p>
-        </div>
-      </div>
-    </section>
+    <h3>6. お問い合わせ</h3>
+    <p>プライバシーに関するご質問は、下記メールアドレスまでご連絡ください。</p>
+    <p><strong>運営者：</strong>Metamorph<br>
+       <strong>メール：</strong>keisuke9n@gmail.com</p>
+  </section>
 
-    <!-- Privacy Policy -->
-    <section class="policy glass fade-up container">
-      <h2>Privacy Policy</h2>
-      <p><strong>Data Collection:</strong> Prime Walk Athlete collects <em>zero</em> personally identifiable information. Step data obtained via Apple HealthKit stays strictly on your device.</p>
-      <p><strong>Health Data:</strong> We read step count solely to calculate stats and achievements. We never write data back to HealthKit.</p>
-      <p><strong>Advertising:</strong> Google AdMob banner ads fund development. AdMob may use device identifiers only as permitted by its own policies.</p>
-      <p><strong>Offline First:</strong> Prime calculations, badge generation, and history function without connectivity.</p>
-      <p><strong>Contact:</strong> Questions? Email <a href="mailto:keisuke9n@gmail.com" style="color: var(--accent); text-decoration: none;">keisuke9n@gmail.com</a>.</p>
-    </section>
+  <!-- Footer -->
+  <footer>
+    © 2025 Metamorph. All rights reserved.
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-      &copy; <span id="year"></span> Metamorph. All rights reserved.
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-      // Year
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Scroll fade‑up animation
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // animate once
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-
-      document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-    </script>
-  </body>
+</main>
+</body>
 </html>
